@@ -1,0 +1,87 @@
+<wxs module="Travel" src="./travel.wxs"></wxs>
+
+<view class="travelClockInWrap">
+  <view
+    class="travelItem"
+    wx:for="{{ travelList }}"
+    wx:for-item="travelItem"
+    wx:key="index"
+  >
+    <!-- 上一个行程是收起的，则显示该line -->
+    <view 
+      wx:if="{{ index !== 0 && !Travel.isActiveTravel(activeTravel, index - 1) }}" 
+      class="travelLine" 
+      style="height: 40rpx; top: -44rpx;" 
+    />
+    <!-- 上一个行程是展开的，则显示该line -->
+    <view 
+      wx:if="{{ index !== 0 && Travel.isActiveTravel(activeTravel, index - 1) }}" 
+      class="travelLine" 
+      style="height: 80rpx; top: -82rpx;" 
+    />
+    <view class="travelTag">
+      <view class="travelItemLeftWrap">
+        <image class="pointImg" style="margin-right: 30rpx;" src="/images/dakaed.png" />
+        <text class="travelItemText" style="margin-right: 30rpx;">{{ travelItem.travelNo }}D</text>
+        <text class="travelItemText" style="margin-right: 30rpx;">{{ travelItem.date }}</text>
+      </view>
+      <view 
+        wx:if="{{ !Travel.isActiveTravel(activeTravel, index) }}" 
+        class="travelItemText travelItemSwitcher"
+        data-index="{{ index }}"
+        bind:tap="expandTravel"
+      >
+        <van-icon name="arrow-down" style="margin-right: 16rpx" />
+        <text>展开</text>
+      </view>
+      <view 
+        wx:if="{{ Travel.isActiveTravel(activeTravel, index) }}" 
+        class="travelItemText travelItemSwitcher"
+        data-index="{{ index }}"
+        bind:tap="shrinkTravel"
+      >
+        <van-icon name="arrow-up" style="margin-right: 16rpx" />
+        <text>收起</text>
+      </view>
+    </view>
+    <view class="clockInWrap" style="height: {{ Travel.isActiveTravel(activeTravel, index) ? '930rpx' : '0' }};">
+      <view 
+        class="clockInItem"
+        wx:for="{{ travelItem.clockInPointList }}"
+        wx:for-item="clockInItem"
+        wx:key="index"
+      >
+        <image class="pointImg" src="/images/dakaed.png" />
+        <view class="cloclInTag">
+          <text class="clockInTitle">{{ clockInItem.title }}</text>
+          <van-button 
+            wx:if="{{ clockInItem.state === 0 }}"
+            type="default" 
+            size="small"
+            custom-class="clockInBtn"
+            color="linear-gradient(139deg, #FFB300 0%, #FF8000 100%)"
+          >
+            打卡
+          </van-button>
+          <image 
+            wx:if="{{ clockInItem.state === 1 }}"
+            mode="widthFix" 
+            class="clockInedImg" 
+            src="/images/clock-in-ed-deep.png" 
+          />
+          <view class="tagArrow" />
+        </view>
+        <view 
+          wx:if="{{ index === 0 }}"
+          class="clockInLine" 
+          style="height: 80rpx;top: -44rpx;" 
+        />
+        <view 
+          wx:if="{{ index !== 0 }}"
+          class="clockInLine" 
+          style="height: 120rpx; top: -84rpx;" 
+        />
+      </view>
+    </view>
+  </view>
+</view>

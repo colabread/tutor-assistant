@@ -1,0 +1,211 @@
+.bgCover {
+  width: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.navBar {
+  background: transparent !important;
+}
+.navBar .van-icon-arrow-left {
+  font-size: 44rpx !important;
+  color: #000000 !important;
+}
+.navBarTitle {
+  font-size: 34rpx !important;
+}
+.container {
+  width: 100%;
+  height: calc(100% - 90px - 88px);
+  padding: 0 30rpx;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  left: 0;
+  top: 90px;
+}
+.introCard {
+  padding: 30rpx;
+  box-sizing: border-box;
+  background: #FFFFFF;
+  box-shadow: 0 3rpx 20rpx rgba(228, 228, 238, 0.5);
+  border-radius: 20rpx;
+  margin-bottom: 20rpx;
+}
+.row1 {
+  font-size: 40rpx;
+  font-family: 萍方-简;
+  font-weight: bold;
+  color: #171719;
+  margin-bottom: 12rpx;
+}
+.row2Font1 {
+  font-size: 40rpx;
+  font-family: DIN;
+  font-weight: bold;
+  color: #171719;
+}
+.row2Font2 {
+  font-size: 26rpx;
+  font-family: 萍方-简;
+  color: #61666E;
+}
+.viewPhoneBookBtn {
+  font-size: 26rpx;
+  font-family: 萍方-简;
+  color: #3B9DFF;
+}
+.carWrap {
+  font-size: 26rpx;
+  font-family: 萍方-简;
+  color: #61666E;
+}
+.carWrap > view:not(:last-child) {
+  margin-bottom: 20rpx;
+}
+.nameList {
+  height: 0;
+  flex-grow: 1;
+  box-sizing: border-box;
+}
+.nameItem {
+  padding: 20rpx 10rpx;
+  border-bottom: 1px solid #E4E4EE;
+}
+.nameItem > view:not(:last-child) {
+  margin-bottom: 16rpx;
+}
+.nameItemRow1 {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+.nameItemIndex {
+  font-size: 28rpx;
+  font-family: 萍方-简;
+  color: #FF8000;
+  margin-right: 20rpx;
+}
+.nameItemName {
+  font-size: 32rpx;
+  font-family: 萍方-简;
+  font-weight: bold;
+  color: #171719;
+  margin-right: 20rpx;
+}
+.genderIcon {
+  width: 36rpx;
+  height: 36rpx;
+}
+.deviceNoWrap {
+  position: absolute;
+  right: 0;
+}
+.nameItemRow2 {
+  font-size: 28rpx;
+  font-family: 萍方-简;
+  color: #61666E;
+}
+.bindOrCancel { 
+  width: 150rpx;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 30rpx;
+  font-family: 萍方-简;
+  color: #FFFFFF;
+}
+
+.btns {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  padding: 20rpx 30rpx env(safe-area-inset-bottom) 30rpx;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+  box-shadow: 0px -2rpx 36rpx rgba(92, 92, 123, 0.15);
+}
+.safeFenceBtn, .bindDeviceBtn {
+  width: 330rpx !important;
+  border-radius: 20rpx !important;
+}
+.safeFenceBtnWrap {
+  display: inline-block;
+  position: relative;
+}
+.safeFenceBtn {
+  background: #FFFFFF !important;
+  border: 2rpx solid #FF8000 !important;
+  font-size: 30rpx !important;
+  font-family: PingFang SC;
+  font-weight: bold;
+  color: #FF8000 !important;
+}
+.alarmNumBubble {
+  position: absolute;
+  left: -16rpx;
+  top: -16rpx;
+  background: red;
+  color: #FFFFFF;
+  font-size: 26rpx;
+  border-radius: 50%;
+  width: 50rpx;
+  height: 50rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.bindDeviceBtn {
+  background: linear-gradient(136deg, #FFB300 0%, #FF8000 100%) !important;
+  font-size: 30rpx !important;
+  font-family: PingFang SC;
+  font-weight: bold;
+  color: #FFFFFF !important;
+}
+
+.deviceBindWrap {
+  padding: 40rpx 40rpx 0 40rpx;
+}
+.deviceBindRow1 {
+  position: relative;
+}
+.deviceBindRowXXX {
+  display: flex;
+  justify-content: space-between;
+}
+.deviceBindRow1XXXLeft, .deviceBindRow1XXXRight {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 36rpx;
+  font-family: 萍方-简;
+  width: 48%;
+  height: 240rpx;
+}
+.deviceBindRow1XXXLeft {
+  background: #F5F8FF;
+  color: #2692FF;
+}
+.deviceBindRow1XXXRight {
+  background: #FFF5EB;
+  color: #FF8000;
+}
+.deviceBindRow1XXXRightText {
+  max-width: 240rpx;
+  word-wrap:break-word; 
+}
+.bindSuccessOrFailIcon {
+  position: absolute !important;
+  left: 50%;
+  top: 50%;
+  transform: translate3d(-50%, -50%, 0);
+}
+.bindFailMsg {
+  margin: 20rpx 0;
+  font-size: 30rpx;
+  font-family: 萍方-简;
+}

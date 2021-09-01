@@ -1,0 +1,11 @@
+<view class="taskItem">
+  <view class="title">{{ task.productName }}</view>
+  <view class="scholl">{{ task.goSchool }}</view>
+  <view class="time">{{ labels.time }}</view>
+  <view class="classWrap">
+    <view class="class">{{ labels.gradeName }}{{ labels.className }}</view>
+  </view>
+  <view class="taskStateWrap">
+    <task-state-tag state="{{ task.executeStatus }}" />
+  </view>
+</view>

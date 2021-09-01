@@ -1,0 +1,30 @@
+<view class="container">
+  <view class="phoneBookTag">
+    <view class="className">{{ enums.gradeEnum[taskDetail.grade] }}{{ enums.classEnum[taskDetail.cls] }}通讯录</view>
+    <view class="schoolName">{{ taskDetail.goSchool }}</view>
+    <image class="tagBg" mode="heightFix" src="/images/phone-list-tag-bg.png" />
+  </view>
+  <scroll-view 
+    class="phoneBookWrap" 
+    scroll-y
+    enhanced="{{ true }}"
+    show-scrollbar="{{ false }}"
+  >
+    <view 
+      class="phoneItem"
+      wx:for="{{ phoneList }}"
+      wx:for-item="item"
+      wx:key="index"
+    >
+      <view class="name">{{ item.name }}</view>
+      <view class="phone">{{ item.jobNature }} {{ item.phone || '' }}</view>
+      <view 
+        class="phoneBtn"
+        bind:tap="call" 
+        data-phone="{{ item.phone }}"
+      >
+        <image class="phoneBtnImg" src="/images/phone.png" />
+      </view>
+    </view>
+  </scroll-view>
+</view>

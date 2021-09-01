@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "area-selector": "/components/business/AreaSelector",
+    "work-type-selector": "/components/business/WorkTypeSelector"
+  },
+  "navigationBarTitleText": "基本信息设置"
+}

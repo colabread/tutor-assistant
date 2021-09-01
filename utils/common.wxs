@@ -1,0 +1,9 @@
+var CommonWxs = {
+	gradeClassFilter: function(grade, cls){
+		return '';
+  }
+}
+
+module.exports = {
+  isShowClockInWrap: CommonWxs.isShowClockInWrap
+}

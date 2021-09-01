@@ -1,0 +1,81 @@
+<scroll-view class="container" scroll-y enhanced="{{ true }}" show-scrollbar="{{ false }}">
+  <view class="taskInfo">
+    <view class="title">{{ detail.productName }}</view>
+    <view class="row2">
+      <task-state-tag style="margin-right: 18rpx" state="{{ detail.executeStatus }}" />
+      <job-tag jobName="{{ detail.jobNature }}" />
+    </view>
+    <view class="row3">{{ detail.goSchool }} | {{ detail.labels.time }}</view>
+    <view class="row4">
+      <text class="label">班级：</text>
+      {{ enums.gradeEnum[detail.grade] }}{{ enums.classEnum[detail.cls] }} | {{ detail.studentNum }}名学生 | {{ detail.teacherNum }}名老师
+    </view>
+    <view class="row5">
+      <text class="label">车号：</text>
+      {{ detail.labels.carNum }}
+    </view>
+    <view class="row6">
+      <text class="label">团号：</text>
+      {{ detail.orderGroupNo }}
+    </view>
+  </view>
+  <view class="taskFunc">
+    <view class="funcTitle">配套资料</view>
+    <view class="funcWrap">
+      <view class="funcItem" bind:tap="openFile" data-type="productCourseManual">
+        <van-icon name="/images/course.png" size="80rpx" />
+        <text>研学课程</text>
+      </view>
+      <view class="funcItem" bind:tap="openFile" data-type="productExecuteManual">
+        <van-icon name="/images/handbook.png" size="80rpx" />
+        <text>执行手册</text>
+      </view>
+      <view class="funcItem" bind:tap="toMatchMaterial" data-material-type="nameList">
+        <van-icon name="/images/name-list.png" size="80rpx" />
+        <text>出行名单</text>
+      </view>
+      <view class="funcItem" bind:tap="toMatchMaterial" data-material-type="photo">
+        <van-icon name="/images/photo.png" size="80rpx" />
+        <text>拍照管理</text>
+      </view>
+      <view class="funcItem" bind:tap="toMatchMaterial" data-material-type="phoneBook">
+        <van-icon name="/images/mail-list.png" size="80rpx" />
+        <text>通讯录</text>
+      </view>
+    </view>
+  </view>
+  <view class="routeWrap">
+    <view class="routeTitle">行程签到</view>
+    <van-collapse 
+      border="{{ false }}"
+      value="{{ activeTravels }}" 
+      bind:change="changeExpandTravel"
+    >
+      <van-collapse-item
+        border="{{ false }}"
+        custom-class="collapse-item"
+        content-class="collapse-content"
+        wx:for="{{ travelList }}"
+        wx:for-item="item"
+        wx:key="index"
+        title="D{{ index + 1 }}  {{ item.time }}" 
+        name="{{ item.time }}"
+        icon="{{ item.isComplete ? '/images/dakaed.png' : '/images/undaka.png' }}"
+      >
+        <van-steps
+          steps="{{ item.taskPointList }}"
+          active="{{ item.activePoint }}"
+          direction="vertical"
+          active-color="#ee0a24"
+          bind:click-step="clockIn"
+          data-task-point-list="{{ item.taskPointList }}"
+        />
+      </van-collapse-item>
+    </van-collapse>
+  </view>
+</scroll-view>
+
+<van-dialog id="van-dialog" />
+<van-popup show="{{ imagePopupShow }}" bind:close="closeImagePopup">
+  <image src="{{ popupImageUrl }}" mode="widthFix" style="width: 100vw" />
+</van-popup>

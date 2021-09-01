@@ -1,0 +1,21 @@
+.jobTag {
+  display: inline-block;
+}
+.jobTagWrap {
+  display: flex;
+  align-items: center;
+  border-radius: 10rpx;
+  padding: 6rpx 10rpx;
+  background-color: #be9661;
+}
+.jobTag image {
+  width: 28rpx;
+  height: 28rpx;
+}
+.jobTag text {
+  font-size: 22rpx;
+  font-family: 萍方-简;
+  color: #FFFFFF;
+  margin-left: 12rpx;
+  line-height: 0;
+}

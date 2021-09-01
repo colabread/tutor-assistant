@@ -1,0 +1,78 @@
+.header {
+  padding: 26rpx;
+  position: relative;
+}
+.clockInIcon {
+  width: 125rpx;
+  height: 110rpx;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}
+.pointTitle {
+  font-size: 32rpx;
+  font-family: 萍方-简;
+  color: #FFFFFF;
+  margin-bottom: 8rpx;
+}
+.headerRow2 {
+  font-size: 26rpx;
+  font-family: 萍方-简;
+  color: #FFFFFF;
+  opacity: 0.7;
+}
+.body {
+  height: calc(100% - 136rpx - 150rpx);
+  padding: 20rpx;
+  box-sizing: border-box;
+}
+.humanCountWrap:not(:last-child) {
+  margin-bottom: 18rpx;
+}
+.humanCountTitle {
+  font-size: 28rpx;
+  font-family: 萍方-简;
+}
+.photoCell {
+  flex-direction: column;
+}
+.photoCellValue {
+  display: flex;
+}
+.cellLabel, .cellValue {
+  font-size: 28rpx;
+  font-family: 萍方-简;
+  color: #171719 !important;
+}
+.uploader {
+  margin-top: 20rpx;
+}
+.clockInRecordWrap {
+  padding: var(--cell-vertical-padding, 10px) var(--cell-horizontal-padding, 16px);
+}
+.clockInRecord {
+  font-size: 24rpx;
+  font-family: 萍方-简;
+  color: #686D78;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.clockInRecord:not(:last-child) {
+  margin-bottom: 24rpx;
+}
+.clockInBtnWrap {
+  width: 100%;
+  padding: 0 20rpx;
+  box-sizing: border-box;
+  position: absolute;
+  left: 0;
+  bottom: env(safe-area-inset-bottom);
+}
+.clockInBtn {
+  width: 100%;
+  border-radius: 14rpx !important;
+  font-size: 30rpx !important;
+  font-family: PingFang SC;
+  color: #FFFFFF !important;
+}

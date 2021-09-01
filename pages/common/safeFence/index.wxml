@@ -1,0 +1,35 @@
+<map 
+  id="mapContext"
+  show-location
+  scale="15"
+  polygons="{{ fenceArea }}"
+  markers="{{ markers }}"
+  bindcallouttap="callouttap"
+  bindregionchange="regionchange"
+/>
+<view class="searchWrap">
+  <van-search 
+    value="{{ keyword }}"
+    custom-class="search"
+    field-class="searchField"
+    input-class="searchInput"
+    shape="round"
+    background="transparent"
+    placeholder="搜索学生姓名/设备号" 
+    bind:change="changeKeyword"
+    bind:search="search"
+  />
+</view>
+<view class="mapBtns">
+  <van-icon 
+    style="margin-bottom: 30rpx;"
+    name="/images/refresh.png" 
+    size="70rpx" 
+    bind:tap="refresh"
+  />
+  <van-icon 
+    name="/images/locate.png" 
+    size="70rpx" 
+    bind:tap="locateToMe"
+  />
+</view>

@@ -1,0 +1,6 @@
+<view class="jobTag">
+  <view class="jobTagWrap">
+    <image src="/images/job-tag.png" />
+    <text>{{ job }}</text>
+  </view>
+</view>

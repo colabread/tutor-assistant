@@ -1,0 +1,100 @@
+.travelClockInWrap {
+  width: 620rpx;
+}
+.travelItem {
+  position: relative;
+}
+.travelItem:not(:first-child) {
+  margin-top: 50rpx;
+}
+.travelTag {
+  background: linear-gradient(133deg, #FFF7E5 0%, #FFEDD9 100%);
+  border-radius: 24rpx;
+  padding: 36rpx;
+  display: flex;
+  justify-content: space-between;
+}
+.travelItemLeftWrap {
+  display: flex;
+  align-items: center;
+}
+.pointImg {
+  width: 52rpx;
+  height: 52rpx;
+}
+.travelItemText {
+  font-size: 30rpx;
+  font-family: PingFang SC;
+  font-weight: bold;
+  color: #FF8000;
+}
+.travelItemSwitcher {
+  display: flex;
+  align-items: center;
+}
+.travelLine {
+  border-left: 4rpx dotted #E4E4EE;
+  width: 2rpx;
+  position: absolute;
+  left: 60rpx;
+}
+
+.clockInWrap {
+  overflow: hidden;
+  transition: height 0.5s ease;
+}
+.clockInItem {
+  display: flex;
+  align-items: center;
+  padding-left: 36rpx;
+  margin-top: 50rpx;
+  position: relative;
+}
+.cloclInTag {
+  width: 0;
+  flex-grow: 1;
+  border-radius: 20rpx;
+  border: 1px solid #E4E4EE;
+  padding: 36rpx;
+  margin-left: 40rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+.clockInTitle {
+  font-size: 30rpx;
+  font-family: 萍方-简;
+  font-weight: bold;
+  color: #171719;
+  line-height: 60rpx;
+}
+.clockInBtn {
+  border-radius: 50px !important;
+  font-size: 32rpx !important;
+  font-family: 萍方-简;
+  padding: 10rpx 30rpx !important;
+}
+.clockInedImg {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 125rpx;
+}
+.tagArrow {
+  width: 20rpx;
+  height: 20rpx;
+  background: #ffffff;
+  border-left: 1px solid #E4E4EE;
+  border-bottom: 1px solid #E4E4EE;
+  border-radius: 6rpx;
+  transform: rotate(45deg);
+  position: absolute;
+  left: -12rpx;
+}
+.clockInLine {
+  border-left: 4rpx dotted #E4E4EE;
+  width: 2rpx;
+  position: absolute;
+  left: 60rpx;
+}

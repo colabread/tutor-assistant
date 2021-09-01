@@ -1,0 +1,21 @@
+.container {
+  height: 100%;
+  padding: 0 20rpx env(safe-area-inset-bottom) 20rpx;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.radioGroup {
+  display: flex;
+  flex-direction: row-reverse;
+}
+.saveBtn {
+  width: 100%;
+  border-radius: 16rpx !important;
+}
+.cellTitle {
+  font-size: 28rpx !important;
+  font-family: 萍方-简 !important;
+  color: #171719 !important;
+}

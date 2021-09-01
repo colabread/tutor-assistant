@@ -1,0 +1,9 @@
+var Travel = {
+	isActiveTravel: function(activeTravel, curTravelIndex){
+		return activeTravel.indexOf(curTravelIndex) !== -1;
+  }
+}
+
+module.exports = {
+  isActiveTravel: Travel.isActiveTravel
+}

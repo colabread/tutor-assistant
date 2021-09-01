@@ -1,0 +1,69 @@
+.container {
+  padding: 30rpx 30rpx env(safe-area-inset-bottom) 30rpx;
+  height: 100%;
+  box-sizing: border-box;
+}
+.phoneBookTag {
+  background: #4AA7FF;
+  padding: 30rpx;
+  border-radius: 20rpx;
+  position: relative;
+}
+.className {
+  font-size: 32rpx;
+  font-family: 萍方-简;
+  color: #FFFFFF;
+  margin-bottom: 20rpx;
+}
+.schoolName {
+  font-size: 26rpx;
+  font-family: 萍方-简;
+  color: #FFFFFF;
+  opacity: 0.7;
+}
+.tagBg {
+  height: 100%;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+.phoneBookWrap {
+  padding: 20rpx 10rpx 0 10rpx;
+  box-sizing: border-box;
+  height: calc(100% - 156rpx);
+}
+.phoneItem:not(:last-child) {
+  border-bottom: 1px solid #E4E4EE;
+}
+.phoneItem {
+  position: relative;
+  padding: 20rpx 0;
+}
+.name {
+  font-size: 32rpx;
+  font-family: 萍方-简;
+  font-weight: bold;
+  color: #171719;
+  margin-bottom: 20rpx;
+}
+.phone {
+  font-size: 28rpx;
+  font-family: 萍方-简;
+  color: #61666E;
+}
+.phoneBtn {
+  width: 90rpx;
+  height: 90rpx;
+  background: #FF8000;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  right: 0;
+  top: 26rpx;
+}
+.phoneBtnImg {
+  width: 45rpx;
+  height: 45rpx;
+}

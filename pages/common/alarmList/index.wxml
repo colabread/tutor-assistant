@@ -1,0 +1,40 @@
+<view class="container">
+  <view 
+    class="card" 
+    style="background: {{ alarmInfo.wraningCount > 0 ? '#FFECEC' : '#E5F9EF' }};color: {{ alarmInfo.wraningCount > 0 ? '#FF4D4F' : '#00C660' }}"
+  >
+    <view class="school">{{ alarmInfo.goSchool }}</view>
+    <view class="alarmNum">
+      <text>{{ alarmInfo.wraningCount }}人预警</text>
+      <van-icon 
+        name="{{ alarmInfo.wraningCount > 0 ? '/images/alarm-refresh.png' : '/images/safe-refresh.png' }}" 
+        size="38rpx"
+        bind:tap="refresh"
+      />
+    </view>
+    <view class="alarmTime">预警时间：{{ alarmInfo.warningTime }}</view>
+    <image class="alarmImg" src="{{ alarmInfo.wraningCount > 0 ? '/images/alarm2x.png' : '/images/safe2x.png' }}" mode="widthFix" />
+  </view>
+  <scroll-view class="alarmScroll" scroll-y>
+    <view 
+      class="alarmItem"
+      wx:for="{{ alarmInfo.warningPersonnelLists }}"
+      wx:for-item="item"
+      wx:key="index"
+      data-student-id="{{ item.orderGroupGradeclsListId }}"
+      bind:tap="toSafeFence"
+    >
+      <view class="studentName">
+        <text>{{ item.name }}</text>
+        <van-icon name="{{ item.sex === 'MALE' ? '/images/male.png' : '/images/female.png' }}" size="40rpx" />
+      </view>
+      <view class="gradeClass">{{ enums.gradeEnum[item.grade] }}{{ enums.classEnum[item.cls] }}</view>
+      <view class="deviceNoWrap">
+        <device-no wx:if="{{ item.warningType === 'OUT_OF_FENCE' || !item.warningType }}" deviceNo="{{ item.deviceName }}" />
+        <device-no wx:if="{{ item.warningType === 'OFF_LINE' }}" deviceNo="{{ item.deviceName }}" type="alarm" />
+      </view>
+    </view>
+  </scroll-view>
+</view>
+
+<van-toast id="van-toast" />

@@ -1,0 +1,6 @@
+<view 
+  class="tag"
+  style="color: {{ stateObj.color }};background: {{ stateObj.bgColor }};"
+>
+  {{ stateObj.text }}
+</view>

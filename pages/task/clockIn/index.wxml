@@ -1,0 +1,144 @@
+<view 
+  class="header"
+  style="background: linear-gradient({{ taskPoint.isClockIn ? '309deg, #37A8FF 0%, #3874FF 100%' : '133deg, #FF9224 0%, #FFB300 100%' }})"
+>
+  <view class="pointTitle">{{ taskPoint.text }}</view>
+  <view class="headerRow2">
+    应到学生{{ taskDetail.studentNum }}名
+    <text wx:if="{{ taskPoint.clockInType === 'board' }}">，老师{{ taskDetail.teacherNum }}名</text>
+  </view>
+  <image class="clockInIcon" src="/images/{{ taskPoint.isClockIn ? 'clock-in-ed' : 'un-clock-in' }}.png" />
+</view>
+<scroll-view class="body" scroll-y>
+  <van-field
+    wx:if="{{ taskPoint.clockInType === 'common' }}"
+    disabled="{{ !canClockIn || taskPoint.isClockIn }}"
+    required
+    label="实到学生人数"
+    value="{{ postData.studentNum }}"
+    placeholder="请输入"
+    input-align="right"
+    bind:change="changeValue"
+    data-type="studentNum"
+    label-class="cellLabel"
+    input-class="cellValue"
+  />
+  <view
+    wx:if="{{ taskPoint.clockInType === 'board' }}"
+  >
+    <view
+      class="humanCountWrap"
+      wx:for="{{ taskDetail.vehiclePlans }}"
+      wx:for-item="item"
+      wx:key="index"
+    >
+      <view class="humanCountTitle">实到人数：（{{ item.vehicleNo }}号车 车牌{{ item.vehiclePlate }} {{ item.persons }}人）</view>
+      <van-field
+        required
+        disabled="{{ !canClockIn || taskPoint.isClockIn }}"
+        label="学生"
+        value="{{ postData.clockInPersons[index].studentActualNum }}"
+        placeholder="请输入"
+        input-align="right"
+        bind:change="changeArrayValue" 
+        data-type="studentActualNum"
+        data-index="{{ index }}"
+        label-class="cellLabel"
+        input-class="cellValue"
+      />
+      <van-field
+        required
+        disabled="{{ !canClockIn || taskPoint.isClockIn }}"
+        label="老师"
+        value="{{ postData.clockInPersons[index].teacherActualNum }}"
+        placeholder="请输入"
+        input-align="right"
+        bind:change="changeArrayValue"
+        data-type="teacherActualNum"
+        data-index="{{ index }}"
+        label-class="cellLabel"
+        input-class="cellValue"
+      />
+    </view>
+  </view>
+  <van-field
+    disabled="{{ !canClockIn || taskPoint.isClockIn }}"
+    label="备注"
+    value="{{ postData.remark }}"
+    type="textarea"
+    autosize
+    placeholder="请输入"
+    input-align="right"
+    bind:change="changeValue"
+    data-type="remark"
+    label-class="cellLabel"
+    input-class="cellValue"
+  />
+  <van-cell 
+    required
+    title="上传照片" 
+    custom-class="photoCell" 
+    value-class="photoCellValue"
+    title-class="cellLabel"
+  >
+    <van-uploader 
+      disabled="{{ !canClockIn || taskPoint.isClockIn }}"
+      deletable="{{ canClockIn &&  !taskPoint.isClockIn }}"
+      show-upload="{{ canClockIn && !taskPoint.isClockIn }}"
+      class="uploader" 
+      file-list="{{ postData.photoList }}" 
+      max-count="9" 
+      preview-size="195rpx" 
+      multiple="true"
+      use-before-read
+      bind:after-read="afterRead" 
+      bind:delete="deletePhoto" 
+      bind:before-read="beforeRead"
+    />
+  </van-cell>
+  <view class="clockInRecordWrap">
+    <view 
+      class="clockInRecord"
+      wx:for="{{ clockInRecords }}"
+      wx:for-item="item"
+      wx:key="index"
+    >
+      {{ enums.clockInStateEnum[item.clockInStatus] }}：{{ item.clockInTime }} | {{ item.clockInAddress }}
+    </view>
+  </view>
+</scroll-view>
+<view class="clockInBtnWrap">
+  <!-- 一般打卡 -->
+  <van-button 
+    wx:if="{{ !taskPoint.isClockIn && taskPoint.clockInType === 'common' && canClockIn }}"
+    custom-class="clockInBtn" 
+    type="primary"
+    color="#FF8000"
+    bind:tap="commonClockIn"
+  >
+    打卡完成
+  </van-button>
+  <!-- 上下车打卡 -->
+  <van-button 
+    wx:if="{{ !taskPoint.isClockIn && taskPoint.clockInType === 'board' && canClockIn }}"
+    custom-class="clockInBtn" 
+    type="primary"
+    color="#FF8000"
+    bind:tap="boardClockIn"
+  >
+    打卡完成
+  </van-button>
+  <!-- 取消打卡 -->
+  <van-button 
+    wx:if="{{ taskPoint.isClockIn && canClockIn }}"
+    custom-class="clockInBtn" 
+    type="primary"
+    color="#FF8000"
+    bind:tap="cancelClockIn"
+  >
+    取消打卡
+  </van-button>
+</view>
+
+<van-dialog id="van-dialog" />
+<van-toast id="van-toast" />

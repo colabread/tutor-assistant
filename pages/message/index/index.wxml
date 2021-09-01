@@ -1,0 +1,50 @@
+<scroll-view 
+  wx:if="{{ msgList.length }}"
+  class="container" 
+  scroll-y 
+  refresher-enabled 
+  refresher-triggered="{{ refreshing }}"
+  bindrefresherrefresh="refresh"
+  enhanced
+  show-scrollbar="false"
+>
+  <view 
+    class="msgWrap"
+    wx:for="{{ msgList }}"
+    wx:key="index"
+  >
+    <view class="msgTime">{{ item.warningTime }}</view>
+    <view class="msgBox">
+      <view class="msgHeader">
+        <view class="msgHeaderLeft">
+          <van-icon name="{{ enums.alarmMsgTypeEnum[item.warningType].icon }}" size="40rpx" />
+          <text class="msgType">{{ enums.alarmMsgTypeEnum[item.warningType].title }}</text>
+        </view>
+        <view class="msgHeaderRight" data-msg="{{ item }}" bind:tap="toSafeFence">
+          <text>查看位置</text>
+          <van-icon name="arrow" />
+        </view>
+      </view>
+      <view class="msgBody">
+        <view class="msgBodyRow1">
+          <text class="msgTitle">{{ enums.alarmMsgTypeEnum[item.warningType].subTitle }}</text>
+          <device-no deviceNo="{{ item.deviceName }}" />
+        </view>
+        <view class="msgBodyRow2">
+          {{ enums.gradeEnum[item.grade] }}{{ enums.classEnum[item.cls] }}<text class="studentName">{{ item.studentName }}</text>{{ enums.alarmMsgTypeEnum[item.warningType].content }}
+        </view>
+      </view>
+    </view>
+  </view>
+</scroll-view>
+<view 
+  class="noMsgWrap" 
+  wx:if="{{ !msgList.length }}" 
+>
+  <image 
+    mode="widthFix" 
+    src="/images/no-content.png" 
+    class="noMsgImg" 
+  />
+  <text>暂无消息</text>
+</view>

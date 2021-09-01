@@ -1,0 +1,128 @@
+<view class="container">
+  <van-cell-group>
+    <van-field 
+      required 
+      disabled
+      input-align="right" 
+      label="手机号"
+      value="{{ phoneNum }}"
+    />
+    <van-cell 
+      title-class="cellTitle"
+      required 
+      is-link 
+      title="工作性质" 
+      placeholder="请选择" 
+      bind:tap="openWorkTypePicker" 
+      value="{{ postData.labels.jobCategories }}"
+    />
+    <van-field 
+      label-class="cellTitle"
+      required 
+      input-align="right" 
+      label="姓名" 
+      placeholder="请输入" 
+      data-type="name"
+      value="{{ postData.name }}"
+      bind:change="changeFieldValue"
+    />
+    <van-field 
+      label-class="cellTitle"
+      required 
+      input-align="right" 
+      label="身份证" 
+      placeholder="请输入" 
+      data-type="idCard"
+      value="{{ postData.idCard }}"
+      bind:change="changeFieldValue"
+    />
+    <van-cell title-class="cellTitle" required title="性别">
+      <van-radio-group 
+        class="radioGroup" 
+        direction="horizontal"
+        data-type="gender"
+        value="{{ postData.gender }}"
+        bind:change="changeFieldValue"
+      >
+        <van-radio name="MALE">男</van-radio>
+        <van-radio name="FEMALE">女</van-radio>
+      </van-radio-group>
+    </van-cell>
+    <van-cell 
+      title-class="cellTitle"
+      required 
+      is-link 
+      title="出生年月" 
+      placeholder="请选择" 
+      data-date-type="birthday"
+      value="{{ postData.birthday }}"
+      bind:tap="openDatePicker" 
+    />
+    <van-cell 
+      title-class="cellTitle"
+      required 
+      is-link 
+      title="现住地" 
+      placeholder="请选择" 
+      value="{{ postData.countryName }} {{ postData.provinceName }} {{ postData.cityName }}"
+      bind:tap="openAreaPicker"
+    />
+    <van-field 
+      label-class="cellTitle"
+      type="textarea"
+      autosize 
+      input-align="right" 
+      label="详细地址" 
+      placeholder="请输入详细地址（非必填）" 
+      data-type="address"
+      value="{{ postData.address }}"
+      bind:change="changeFieldValue"
+    />
+    <van-field 
+      label-class="cellTitle"
+      input-align="right" 
+      label="导游编号" 
+      placeholder="请输入" 
+      data-type="guideCard"
+      value="{{ postData.guideCard }}"
+      bind:change="changeFieldValue"
+    />
+  </van-cell-group>
+  <van-button color="#FF8000" custom-class="saveBtn" bind:tap="save">保存</van-button>
+</view>
+
+<van-popup
+  round
+  show="{{ datePickerShow }}"
+  position="bottom"
+  bind:close="closeDatePicker"
+>
+  <van-datetime-picker
+    type="date"
+    min-date="0"
+    max-date="{{ maxSelectDate }}"
+    value="{{ postData.times[datePickerType] }}"
+    bind:confirm="confirmDate"
+    bind:cancel="closeDatePicker"
+  />
+</van-popup>
+<van-popup
+  round
+  show="{{ areaPickerShow }}"
+  position="bottom"
+  bind:close="closeAreaPicker"
+>
+  <area-selector bind:confirm="changeArea" bind:cancel="closeAreaPicker" />
+</van-popup>
+<van-popup
+  round
+  show="{{ workTypePickerShow }}"
+  position="bottom"
+  bind:close="closeWorkTypePicker"
+>
+  <work-type-selector 
+    initValue="{{ postData.jobCategories }}" 
+    bind:confirm="changeWorkType" 
+    bind:cancel="closeWorkTypePicker" 
+  />
+</van-popup>

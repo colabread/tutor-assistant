@@ -1,0 +1,42 @@
+<view class="container">
+  <view class="tabsWrap">
+    <van-tabs active="{{ activeTab }}" bind:change="changeTab">
+      <van-tab title="全部" />
+      <van-tab 
+        wx:for="{{ enumArray.taskStateEnumArray }}" 
+        wx:for-item="item" 
+        wx:key="index" 
+        title="{{ item.label }}"
+        name="{{ item.key }}" 
+      />
+    </van-tabs>
+  </view>
+  <view class="listWrap">
+    <scroll-view 
+      style="height: 100%" 
+      scroll-y
+      scroll-with-animation
+      scroll-top="{{ scrollTop }}"
+      showScrollbar="{{ false }}"
+      refresher-enabled
+      refresher-triggered="{{ refreshing }}"
+      bindscrolltolower="scrollToBottom"
+      bindrefresherrefresh="refresh"
+    >
+      <view wx:if="{{ taskList.length > 0 }}" class="contentWrap">
+        <task-item 
+          wx:for="{{ taskList }}"
+          wx:for-item="item"
+          wx:key="id"
+          task="{{ item }}" 
+          bind:tap="toDetail"
+          data-task-id="{{ item.id }}"
+        />
+      </view>
+      <view wx:if="{{ taskList.length === 0 }}" class="noContentWrap">
+        <van-image width="320rpx" height="300rpx" src="/images/no-content.png" />
+        <text class="noContentText">暂无任务</text>
+      </view>
+    </scroll-view>
+  </view>
+</view>

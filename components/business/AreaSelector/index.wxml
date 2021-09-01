@@ -1,0 +1,8 @@
+<van-picker 
+  columns="{{ areaList }}" 
+  value-key="nameCn" 
+  show-toolbar
+  bind:change="handleChange" 
+  bind:confirm="handleConfirm"
+  bind:cancel="handleCancel"
+/>

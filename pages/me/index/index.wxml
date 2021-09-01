@@ -1,0 +1,67 @@
+<image class="bgImg" src="/images/me-bg.png" mode="widthFix" />
+<view class="container">
+  <view class="section1">
+    <view class="userInfo">
+      <view class="nickname">{{ userInfo.nickName }}</view>
+      <van-image
+        round
+        width="140rpx"
+        height="140rpx"
+        src="{{ userInfo.avatarUrl }}"
+      />
+    </view>
+    <view class="myTaskWrap">
+      <view class="taskWrapHeader">
+        <view class="myTaskText">我的任务</view>
+        <view class="allText" bind:tap="toTaskPage">全部<van-icon name="arrow" /></view>
+      </view>
+      <view class="taskWrapBody">
+        <view class="taskStateItem" data-task-state="TO_TRAVEL" bind:tap="toTaskPage">
+          <van-icon name="/images/task-wait.png" size="90rpx" />
+          <text class="taskStateText">待出行</text>
+          <count-bubble count="{{ taskStatistics.toTravel }}" />
+        </view>
+        <view class="taskStateItem" data-task-state="IN_THE_TRAVEL" bind:tap="toTaskPage">
+          <van-icon name="/images/task-doing.png" size="90rpx" />
+          <text class="taskStateText">出行中</text>
+          <count-bubble count="{{ taskStatistics.inTheTravel }}" />
+        </view>
+        <view class="taskStateItem" data-task-state="COMPLETED" bind:tap="toTaskPage">
+          <van-icon name="/images/task-finish.png" size="90rpx" />
+          <text class="taskStateText">已完成</text>
+        </view>
+        <view class="taskStateItem" data-task-state="CANCELED" bind:tap="toTaskPage">
+          <van-icon name="/images/task-cancel.png" size="90rpx" />
+          <text class="taskStateText">已取消</text>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="section2">
+    <van-cell-group border="{{ false }}">
+      <van-cell 
+        is-link 
+        title="信息设置" 
+        icon="/images/setting.png" 
+        border="{{ false }}" 
+        custom-class="cell"
+        title-class="cell-title"
+        bind:tap="toBasic"
+      />
+    </van-cell-group>
+  </view>
+</view>
+
+<!-- 长按按钮 -->
+<view style="position: absolute;left: 0;bottom: 0;">
+  <long-tap-view bind:longTap="handleLongTap"/>
+</view>
+
+<!-- 切换环境 -->
+<van-popup
+  show="{{ envSwitcherShow }}"
+  position="bottom"
+  bind:close="closeEnvSwitcher"
+>
+  <env-switcher bind:cancel="closeEnvSwitcher"/>
+</van-popup>

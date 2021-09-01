@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "device-no": "/components/business/DiviceNo"
+  },
+  "navigationBarTitleText": "出行名单",
+  "navigationStyle": "custom",
+  "disableScroll": true
+}

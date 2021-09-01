@@ -1,0 +1,1 @@
+<view class="longTapView" bind:touchstart="touchstart" bind:touchend="touchend"/>

@@ -1,0 +1,91 @@
+<scroll-view 
+  class="container" 
+  scroll-y
+>
+  <view class="bgArea">
+      <image class="homeCover" src="/images/home-cover.png" mode="widthFix" />
+      <image class="homePanda" src="/images/home-panda.png" mode="widthFix" />
+      <view class="bgTextWrap">
+        <view class="bgText1">{{ (!groupList || !groupList.length) ? '今日暂无出行团组' : '今日出行团组' }}</view>
+        <view class="bgText2">{{ today }}</view>
+      </view>
+  </view>
+  <view 
+    wx:if="{{ groupList && groupList.length }}" 
+    class="swiperWrap"
+  >
+    <swiper 
+      current="{{ curSwiper }}" 
+      class="swiper" 
+      previous-margin="40rpx" 
+      next-margin="40rpx" 
+      snap-to-edge
+      easing-function="easeOutCubic"
+      duration="300"
+    >
+      <swiper-item
+        wx:for="{{ groupList }}"
+        wx:for-item="item"
+        wx:key="index"
+        item-id="{{ item.orderGroupId }}"
+      >
+        <view class="swiperItemContent">
+          <view class="card">
+            <view class="cardInfoWrap">
+              <view class="title">{{ item.productName }}</view>
+              <view class="groupNo">{{ item.orderGroupNo }}</view> 
+              <view class="cardRow3">{{ item.goSchool }} | {{ item.studentCount }}名学生</view>
+              <view class="carRow4">{{ item.goDate }}-{{ item.backDate }}（{{ item.interval }}天）</view>
+            </view>
+            <view 
+              wx:if="{{ item.electricFences && item.electricFences.length }}"
+              class="alarmWrap" 
+              style="background: {{ item.warningCount > 0 ? '#FFECEC' : '#E5F9EF' }}"
+            >
+              <view>
+                <image class="alarmImg" src="{{ item.warningCount > 0 ? '/images/alarm.png' : '/images/safe.png' }}" mode="widthFix" />
+                <text class="alarmText" style="color: {{ item.warningCount > 0 ? '#FF4D4F' : '#00C660' }}">{{ item.warningCount }}人预警</text>
+              </view>
+              <view wx:if="{{ item.warningCount > 0 }}" class="toAlarm" bind:tap="toAlarmList" data-group-id="{{ item.orderGroupId }}">去查看</view>
+            </view>
+          </view>
+          <view wx:if="{{ item.electricFences && item.electricFences.length }}" class="alarmSiteWrap">
+            <view class="alarmSiteWrapTitle">安全预警开关</view>
+            <scroll-view class="siteListScroll" scroll-y>
+              <view class="siteListWrap">
+                <view 
+                  class="site"
+                  style="border-color: {{ site.open ? '#3B9DFF' : '#E4E4EE' }}"
+                  wx:for="{{ item.electricFences }}"
+                  wx:for-item="site"
+                  wx:key="index"
+                  bind:tap="switchAlarmSite"
+                  data-group-id="{{ item.orderGroupId }}"
+                  data-site="{{ site }}"
+                  data-site-list="{{ item.electricFences }}"
+                >
+                  <image class="alarmSwitchImg" src="{{ site.open ? '/images/selected.png' : '/images/un-selected.png' }}" mode="widthFix"/>
+                  <view class="siteName">{{ site.name }}</view>
+                </view>
+              </view>
+            </scroll-view>
+          </view>
+          <view 
+            class="safeFenceBtn" 
+            bind:tap="toSafeFence" 
+            data-group-id="{{ item.orderGroupId }}"
+          >
+            <text class="safeFenceBtnText">查看安全围栏</text>
+            <van-icon class="safeFenceBtnArrow" name="arrow" />
+          </view>
+        </view>
+      </swiper-item>
+    </swiper>
+  </view>
+  <view wx:if="{{ !groupList || !groupList.length }}" class="noGroupArea">
+    <image src="/images/home-no-data.png" mode="widthFix" class="noGroupImage" />
+  </view>
+</scroll-view>
+
+<van-dialog id="van-dialog" />
+<van-toast id="van-toast" />

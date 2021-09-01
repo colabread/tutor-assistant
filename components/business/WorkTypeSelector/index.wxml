@@ -1,0 +1,24 @@
+<view class="container">
+  <view class="row1">
+    <text class="cancelBtn" bind:tap="cancel">取消</text>
+    <text class="title">工作性质</text>
+    <text class="confirmBtn" bind:tap="confirm">确定</text>
+  </view>
+  <view class="workTypeWrap">
+    <van-checkbox-group 
+      direction="horizontal"
+      value="{{ value }}" 
+      bind:change="change"
+    >
+      <van-checkbox 
+        shape="square"
+        custom-class="checkbox"
+        wx:for="{{ workTypeList }}"
+        wx:key="index"
+        name="{{ item.key }}"
+      >
+        {{ item.value }}
+      </van-checkbox>
+    </van-checkbox-group>
+  </view>
+</view>

@@ -1,0 +1,4 @@
+<view class="deviceNo {{ type==='normal'?'normalDeviceNo':'alarmDeviceNo' }}">
+  <text wx:if="{{ type === 'alarm' }}">离线：</text>
+  <text>{{ deviceNo }}</text>
+</view>

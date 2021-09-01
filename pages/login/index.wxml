@@ -1,0 +1,51 @@
+<view class="container">
+  <view class="wrap">
+    <view class="title">欢迎来到远海智行研学</view>
+    <view class="title">服务小助手</view>
+    <view class="loginBtnWrap">
+      <van-button 
+        round 
+        custom-class="loginBtn" 
+        color="#FF8000"
+        icon="wechat"
+        bind:tap="handleLogin"
+      >
+        微信登录
+      </van-button>
+    </view>
+    <view class="agreementText">仅供工作人员使用</view>
+  </view>
+
+  <van-popup 
+    round
+    show="{{ phoneRequesterShow }}" 
+    custom-class="phoneRequester"
+  >
+    <view>
+      <van-image
+        round
+        width="250rpx"
+        height="250rpx"
+        src="{{ avatarUrl }}"
+      />
+    </view>
+    <view class="getPhoneBtnWrap">
+      <button open-type="getPhoneNumber" class="getPhoneBtn" bindgetphonenumber="getPhoneNum">绑定手机</button>
+    </view>
+  </van-popup>
+</view>
+<image class="bgCover" mode="widthFix" src="/images/login-bg.png" />
+
+<!-- 长按按钮 -->
+<view style="position: absolute;left: 0;bottom: 0;">
+  <long-tap-view bind:longTap="handleLongTap"/>
+</view>
+
+<!-- 切换环境 -->
+<van-popup
+  show="{{ envSwitcherShow }}"
+  position="bottom"
+  bind:close="closeEnvSwitcher"
+>
+  <env-switcher bind:cancel="closeEnvSwitcher"/>
+</van-popup>

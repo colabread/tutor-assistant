@@ -1,0 +1,9 @@
+{
+  "usingComponents": {
+    "count-bubble": "/components/common/CountBubble",
+    "env-switcher": "/components/test/EnvSwitcher",
+    "long-tap-view": "/components/test/LongTapView"
+  },
+  "navigationBarTitleText": "个人中心",
+  "navigationStyle": "custom"
+}

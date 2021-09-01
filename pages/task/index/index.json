@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "task-item": "/components/business/TaskItem/index"
+  },
+  "navigationBarTitleText": "我的任务",
+  "disableScroll": true
+}

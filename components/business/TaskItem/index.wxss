@@ -1,0 +1,48 @@
+.taskItem {
+  display: flex;
+  flex-direction: column;
+  padding: 20rpx 0;
+  border-bottom: 1px solid #E4E4EE;
+  position: relative;
+}
+.title, .scholl {
+  margin-bottom: 12rpx;
+}
+.title {
+  font-size: 32rpx;
+  font-family: 萍方-简;
+  font-weight: bold;
+  color: #171719;
+  max-width: 80%;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+}
+.scholl {
+  font-size: 24rpx;
+  font-family: 萍方-简;
+  color: #171719;
+}
+.time {
+  font-size: 24rpx;
+  font-family: 萍方-简;
+  color: #171719;
+}
+.classWrap {
+  position: absolute;
+  right: 0;
+  bottom: 12rpx;
+}
+.class {
+  padding: 8rpx 14rpx;
+  background: #FCEFE1;
+  border-radius: 8rpx;
+  font-size: 24rpx;
+  font-family: 萍方-简;
+  color: #A9673D;
+}
+.taskStateWrap {
+  position: absolute;
+  right: 0;
+  top: 12rpx;
+}

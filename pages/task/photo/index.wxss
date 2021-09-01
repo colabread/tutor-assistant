@@ -1,0 +1,9 @@
+.container {
+  padding: 30rpx;
+}
+.uploader {
+  margin-left: 228rpx;
+}
+.uploader .van-uploader__upload {
+  margin: 0;
+}

@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "long-tap-view": "/components/test/LongTapView",
+    "env-switcher": "/components/test/EnvSwitcher"
+  },
+  "navigationBarTitleText": "研学云平台"
+}

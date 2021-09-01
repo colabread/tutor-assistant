@@ -1,0 +1,27 @@
+.container {
+  padding: 30rpx 30rpx 0 30rpx;
+}
+.row1 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 30rpx;
+  font-family: 萍方-简;
+  margin-bottom: 10rpx;
+}
+.title {
+  font-size: 32rpx;
+  font-family: 萍方-简;
+  font-weight: bold;
+  color: #171719;
+}
+.cancelBtn {
+  color: #BDBCBF;
+}
+.confirmBtn {
+  color: #FF8000;
+}
+.checkbox {
+  width: 200rpx;
+  margin-top: 30rpx;
+}

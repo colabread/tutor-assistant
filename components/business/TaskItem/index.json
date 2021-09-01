@@ -1,0 +1,6 @@
+{
+  "component": true,
+  "usingComponents": {
+    "task-state-tag": "/components/business/TaskStateTag/index"
+  }
+}

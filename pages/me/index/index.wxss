@@ -1,0 +1,78 @@
+.bgImg {
+  width: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.container {
+  padding: 180rpx 36rpx 36rpx 36rpx;
+}
+.section1 {
+  padding: 20rpx;
+  border-bottom: 1px solid #E4E4EE;
+}
+.section1 > view:not(:last-child) {
+  margin-bottom: 38rpx;
+}
+.userInfo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.nickname {
+  font-size: 56rpx;
+  font-family: 萍方-简;
+  font-weight: bold;
+  color: #171719;
+}
+.myTaskWrap > view:not(:last-child) {
+  margin-bottom: 20rpx;
+}
+.taskWrapHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.myTaskText {
+  font-size: 30rpx;
+  font-family: 萍方-简;
+  font-weight: bold;
+  color: #171719;
+}
+.allText {
+  color: gray;
+  font-size: 26rpx;
+}
+.taskWrapBody {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20rpx;
+}
+.taskStateItem {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+.taskStateText {
+  font-size: 28rpx;
+  font-family: 萍方-简;
+  color: #171719;
+  margin-top: 10rpx;
+}
+.section2 {
+  padding-top: 20rpx;
+}
+.cell {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+.cell .van-cell__left-icon-wrap {
+  margin-right: 30rpx;
+}
+.cell-title {
+  font-size: 28rpx;
+  font-family: 萍方-简;
+  font-weight: bold;
+  color: #171719;
+}

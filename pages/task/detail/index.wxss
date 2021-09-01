@@ -1,0 +1,79 @@
+.container {
+  height: 100%;
+  padding: 36rpx 36rpx env(safe-area-inset-bottom) 36rpx;
+  box-sizing: border-box;
+  background: #FFFFFF;
+  border-radius: 36rpx;
+}
+.taskInfo {
+  margin-bottom: 30rpx;
+}
+.taskInfo > view:not(:last-child) {
+  margin-bottom: 20rpx;
+}
+.title {
+  font-size: 40rpx;
+  font-family: 萍方-简;
+  color: #171719;
+}
+.row2 {
+  display: flex;
+  align-items: center;
+}
+.row3 {
+  font-size: 28rpx;
+  font-family: 萍方-简;
+  color: #171719;
+}
+.label {
+  font-size: 26rpx;
+  font-family: 萍方-简;
+  color: #61666E;
+}
+.row4, .row5, .row6 {
+  font-size: 26rpx;
+  font-family: 萍方-简;
+  color: #171719;
+}
+.funcWrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30rpx;
+}
+.funcTitle {
+  font-size: 38rpx;
+  font-family: 萍方-简;
+  color: #171719;
+  margin-bottom: 20rpx;
+}
+.funcItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.funcItem text {
+  font-size: 28rpx;
+  font-family: 萍方-简;
+  color: #171719;
+}
+.routeTitle {
+  font-size: 38rpx;
+  font-family: 萍方-简;
+  color: #171719;
+  margin-bottom: 20rpx;
+}
+.van-step__title {
+  display: flex;
+  justify-content: space-between;
+}
+.collapse-item .van-cell {
+  padding-left: 0;
+  padding-right: 0;
+}
+.collapse-item .van-cell__left-icon-wrap {
+  margin-right: 20rpx;
+}
+.collapse-content {
+  padding: 0 !important;
+}

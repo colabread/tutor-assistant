@@ -1,0 +1,121 @@
+<image class="bgCover" src="/images/name-list-bg.png" mode="widthFix" />
+<van-nav-bar
+  custom-class="navBar"
+  title-class="navBarTitle"
+  border="{{ false }}"
+  title="出行名单"
+  left-arrow
+  bind:click-left="navBack"
+/>
+<view class="container">
+  <view class="introCard">
+    <view class="row1">
+      <view>{{ travelNameList.goSchool }}</view>
+      <view>{{ enums.gradeEnum[travelNameList.grade] }}{{ enums.classEnum[travelNameList.cls] }}</view>
+    </view>
+    <view class="row2">
+      <text class="row2Font1" style="margin-right: 50rpx">{{ travelNameList.studentTotalNum }} <text class="row2Font2">学生</text></text>
+      <text class="row2Font1" style="margin-right: 50rpx">{{ travelNameList.teacherTotalNum }} <text class="row2Font2">老师</text></text>
+      <text class="row2Font1" style="margin-right: 50rpx">{{ travelNameList.staffTotalNum }} <text class="row2Font2">工作人员</text></text>
+      <text class="viewPhoneBookBtn" bind:tap="toPhoneBookPage">查看通讯录</text>
+    </view>
+    <van-divider />
+    <view class="carWrap">
+      <view 
+        class="carInfo"
+        wx:for="{{ travelNameList.vehiclePlans }}"
+        wx:for-item="item"
+        wx:key="index"
+      >
+        {{ item.vehicleNo }}号车 | 
+        {{ item.seat }}座 | 
+        {{ item.vehiclePlate }} | 
+        学生{{ item.studentNum }} | 
+        老师{{ item.teacherNum }} | 
+        工作人员{{ item.staffNum }}
+      </view>
+    </view>
+  </view>
+  <scroll-view class="nameList" scroll-y enhanced show-scrollbar="false">
+    <van-swipe-cell
+      right-width="{{ item.nameType === '学生' ? 75 : 0 }}"
+      wx:for="{{ travelNameList.personnelLists }}"
+      wx:for-item="item"
+      wx:key="index"
+    >
+      <view
+        class="nameItem"
+        style="background: {{ item.warning && item.warningType === 'OUT_OF_FENCE' ? '#fff1f1' : '' }}"
+        data-student="{{ item }}"
+        bind:tap="toSafeFenceByStudent"
+      >
+        <view class="nameItemRow1">
+          <text class="nameItemIndex">{{ index + 1 }}</text>
+          <text class="nameItemName">{{ item.name }}</text>
+          <image class="genderIcon" src="/images/{{ item.sex === 'FEMALE' ? 'female' : 'male'}}.png"/>
+          <view wx:if="{{ item.deviceName }}" class="deviceNoWrap">
+            <device-no wx:if="{{ item.warningType === 'OUT_OF_FENCE' || !item.warningType }}" deviceNo="{{ item.deviceName }}" />
+            <device-no wx:if="{{ item.warningType === 'OFF_LINE' }}" deviceNo="{{ item.deviceName }}" type="alarm" />
+          </view>
+        </view>
+        <view class="nameItemRow2">
+          <text style="margin: 0 20rpx 0 36rpx">{{ item.nameType }}</text>
+          <text>{{ item.memo || '' }}</text>
+        </view>
+      </view>
+      <view 
+        wx:if="{{ !item.deviceName && item.nameType === '学生' }}"
+        slot="right" 
+        class="bindOrCancel" 
+        style="background: #3B9DFF"
+        data-student-id="{{ item.orderGroupGradeclsListId }}"
+        bind:tap="bind"
+      >
+        绑定
+      </view>
+      <view 
+        wx:if="{{ item.deviceName && item.nameType === '学生' }}"
+        slot="right" 
+        class="bindOrCancel" 
+        style="background: #FF4D4F"
+        data-student-id="{{ item.orderGroupGradeclsListId }}"
+        bind:tap="cancelBind"
+      >
+        取消绑定
+      </view>
+    </van-swipe-cell>
+  </scroll-view>
+</view>
+
+<view class="btns">
+  <view class="safeFenceBtnWrap">
+    <van-button custom-class="safeFenceBtn" bind:click="toSafeFence">安全围栏</van-button>
+    <view wx:if="{{ travelNameList.wraningCount > 0 }}" class="alarmNumBubble">{{ travelNameList.wraningCount }}</view>
+  </view>
+  <van-button custom-class="bindDeviceBtn" bind:click="toBindDeivce">设备绑定</van-button>
+</view>
+<van-popup
+  show="{{ deviceBindPopopShow }}"
+  round
+  position="bottom"
+  bind:close="closeDeviceBindPopop"
+>
+  <view class="deviceBindWrap">
+    <view class="deviceBindRow1">
+      <view class="deviceBindRowXXX">
+        <view class="deviceBindRow1XXXLeft">{{ curBindStudent.index + 1 }}号 {{ curBindStudent.name }}</view>
+        <view class="deviceBindRow1XXXRight">
+          <text class="deviceBindRow1XXXRightText">{{ curBindStudent.deviceName }}</text>
+        </view>
+      </view>
+      <van-icon 
+        class="bindSuccessOrFailIcon" 
+        name="{{ curBindStudent.success ? '/images/bind-success.png' : '/images/bind-fail.png' }}" 
+        size="80rpx"
+      />
+    </view>
+    <view class="bindFailMsg" style="color: {{ curBindStudent.success ? '#00c660' : '#FF4D4F' }}">{{ curBindStudent.failMsg }}</view>
+    <van-button custom-class="bindDeviceBtn" custom-style="width: 100% !important;" bind:click="toBindDeivce">继续绑定</van-button>
+  </view>
+</van-popup>
+<van-toast id="van-toast" />

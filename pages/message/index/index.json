@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "device-no": "/components/business/DiviceNo"
+  },
+  "navigationBarTitleText": "消息"
+}

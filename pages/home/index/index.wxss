@@ -1,0 +1,164 @@
+.container {
+  height: 100%;
+}
+.bgArea {
+  position: relative;
+}
+.homeCover {
+  width: 100%;
+}
+.homePanda {
+  position: absolute;
+  top: 16rpx;
+  right: 60rpx;
+  width: 220rpx;
+  z-index: 100;
+}
+.bgTextWrap {
+  position: absolute;
+  left: 44rpx;
+  top: 34rpx;
+  font-family: 萍方-简;
+  color: #933A00;
+}
+.bgText1 {
+  font-size: 40rpx;
+  font-weight: bold;
+  margin-bottom: 14rpx;
+}
+.bgText2 {
+  font-size: 24rpx;
+}
+
+.swiperWrap {
+  position: absolute;
+  top: 160rpx;
+  width: 100%;
+  height: calc(100% - 160rpx);
+}
+.noGroupArea {
+  width: 100%;
+  position: absolute;
+  top: 155rpx;
+}
+.noGroupImage {
+  width: 100%;
+}
+.swiper {
+  height: 100%;
+}
+.swiperItemContent {
+  height: 100%;
+  padding: 20rpx;
+  box-sizing: border-box;
+  overflow: auto;
+}
+.swiperItemContent > view:not(:last-child) {
+  margin-bottom: 50rpx;
+}
+.card {
+  background: #ffffff;
+  border-radius: 40rpx;
+  overflow: hidden;
+  box-shadow: 0px 6rpx 30rpx rgba(189, 188, 191, 0.35);
+}
+.cardInfoWrap > view:not(:last-child) {
+  margin-bottom: 20rpx;
+}
+.cardInfoWrap {
+  padding: 36rpx;
+}
+.title {
+  font-size: 40rpx;
+  font-weight: bold;
+  color: #171719;
+}
+.groupNo {
+  font-size: 24rpx;
+  line-height: 24px;
+  color: #61666E;
+}
+.cardRow3, .carRow4 {
+  font-size: 28rpx;
+  font-family: 萍方-简;
+  color: #171719;
+}
+.alarmWrap {
+  padding: 20rpx 36rpx;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.alarmImg {
+  width: 32rpx;
+}
+.alarmText {
+  font-size: 28rpx;
+  font-family: 萍方-简;
+  font-weight: bold;
+  margin-left: 8rpx;
+}
+.toAlarm {
+  font-size: 28rpx;
+  font-family: 萍方-简;
+  color: #FF4D4F;
+}
+
+.alarmSiteWrapTitle {
+  font-size: 30rpx;
+  font-family: 萍方-简;
+  font-weight: bold;
+  color: #171719;
+  margin-bottom: 40rpx;
+}
+.siteListScroll {
+  max-height: 438rpx;
+}
+.siteListWrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+.site:not(:nth-last-child(1)):not(:nth-last-child(2)) {
+  margin-bottom: 30rpx;
+}
+.site {
+  width: 49%;
+  padding: 40rpx;
+  box-sizing: border-box;
+  border: 1px solid #E4E4EE;
+  border-radius: 24rpx;
+  position: relative;
+  display: inline-block;
+}
+.alarmSwitchImg {
+  width: 55rpx;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+.siteName {
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis; 
+  white-space: nowrap; 
+}
+.safeFenceBtn {
+  background: #ffecd9;
+  border-radius: 24rpx;
+  padding: 24rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.safeFenceBtnText {
+  font-size: 28rpx;
+  font-family: 萍方-简;
+  font-weight: bold;
+  color: #FF8000;
+}
+.safeFenceBtnArrow {
+  color: #FF8000;
+}

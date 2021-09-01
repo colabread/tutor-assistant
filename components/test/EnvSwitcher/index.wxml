@@ -1,0 +1,6 @@
+<van-picker 
+  show-toolbar 
+  columns="{{ envList }}" 
+  bind:confirm="handleConfirm"
+  bind:cancel="handleCancel" 
+/> 

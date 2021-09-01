@@ -1,0 +1,96 @@
+{
+  "pages": [
+    "pages/boot/index",
+    "pages/login/index",
+    "pages/home/index/index",
+    "pages/task/index/index",
+    "pages/task/detail/index",
+    "pages/task/nameList/index",
+    "pages/task/photo/index",
+    "pages/task/phoneBook/index",
+    "pages/task/clockIn/index",
+    "pages/message/index/index",
+    "pages/me/index/index",
+    "pages/me/basic/index",
+    "pages/common/alarmList/index",
+    "pages/common/safeFence/index",
+    "pages/test/index"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "Weixin",
+    "navigationBarTextStyle": "black"
+  },
+  "sitemapLocation": "sitemap.json",
+  "usingComponents": {
+    "van-button": "@vant/weapp/button/index",
+    "van-popup": "@vant/weapp/popup/index",
+    "van-image": "@vant/weapp/image/index",
+    "van-icon": "@vant/weapp/icon/index",
+    "van-cell": "@vant/weapp/cell/index",
+    "van-cell-group": "@vant/weapp/cell-group/index",
+    "van-field": "@vant/weapp/field/index",
+    "van-radio": "@vant/weapp/radio/index",
+    "van-radio-group": "@vant/weapp/radio-group/index",
+    "van-checkbox": "@vant/weapp/checkbox/index",
+    "van-checkbox-group": "@vant/weapp/checkbox-group/index",
+    "van-datetime-picker": "@vant/weapp/datetime-picker/index",
+    "van-tab": "@vant/weapp/tab/index",
+    "van-tabs": "@vant/weapp/tabs/index",
+    "van-steps": "@vant/weapp/steps/index",
+    "van-collapse": "@vant/weapp/collapse/index",
+    "van-collapse-item": "@vant/weapp/collapse-item/index",
+    "van-uploader": "@vant/weapp/uploader/index",
+    "van-divider": "@vant/weapp/divider/index",
+    "van-dialog": "@vant/weapp/dialog/index",
+    "van-picker": "@vant/weapp/picker/index",
+    "van-nav-bar": "@vant/weapp/nav-bar/index",
+    "van-toast": "@vant/weapp/toast/index",
+    "van-search": "@vant/weapp/search/index",
+    "van-swipe-cell": "@vant/weapp/swipe-cell/index"
+  },
+  "tabBar": {
+    "backgroundColor": "#fff",
+    "borderStyle": "white",
+    "selectedColor": "#101010",
+    "color": "#999999",
+    "list": [
+      {
+        "iconPath": "/images/home.png",
+        "selectedIconPath": "/images/home-active.png",
+        "pagePath": "pages/home/index/index",
+        "text": "首页"
+      },
+      {
+        "iconPath": "/images/task.png",
+        "selectedIconPath": "/images/task-active.png",
+        "pagePath": "pages/task/index/index",
+        "text": "任务"
+      },
+      {
+        "iconPath": "/images/message.png",
+        "selectedIconPath": "/images/message-active.png",
+        "pagePath": "pages/message/index/index",
+        "text": "消息"
+      },
+      {
+        "iconPath": "/images/me.png",
+        "selectedIconPath": "/images/me-active.png",
+        "pagePath": "pages/me/index/index",
+        "text": "我的"
+      }
+    ]
+  },
+  "permission": {
+    "scope.userLocation": {
+      "desc": "你的位置信息将用于小程序位置接口的效果展示"
+    }
+  },
+  "plugins": {
+    "routePlan": {
+      "version": "1.0.11",
+      "provider": "wx50b5593e81dd937a"
+    }
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "device-no": "/components/business/DiviceNo"
+  },
+  "navigationBarTitleText": "预警名单",
+  "disableScroll": true
+}

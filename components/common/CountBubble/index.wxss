@@ -1,0 +1,14 @@
+.bubble {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 36rpx;
+  height: 36rpx;
+  background: red;
+  color: #ffffff;
+  font-size: 20rpx;
+  border-radius: 50%;
+  position: absolute;
+  top: 0;
+  right: 0;
+}

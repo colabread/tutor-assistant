@@ -1,0 +1,26 @@
+<view class="container">
+  <van-uploader 
+    disabled="{{ disabled }}"
+    class="uploader"
+    preview-size="215rpx"
+    multiple="{{ true }}"
+    max-count="100"
+    use-before-read
+    bind:after-read="afterRead"
+    bind:before-read="beforeRead"
+  />
+  <van-divider />
+  <van-uploader 
+    disabled 
+    deletable="{{ !disabled }}"
+    file-list="{{ photoList }}" 
+    show-upload="{{ false }}"
+    max-count="100"
+    preview-size="215rpx"
+    bind:delete="deletePhoto"
+  />
+</view>
+
+<view style="position: absolute;top: 200rpx;left: 30rpx;">共计{{ photoList.length }}张</view>
+<van-dialog id="van-dialog" />
+<van-toast id="van-toast" />
