@@ -10,7 +10,7 @@
         icon="wechat"
         bind:tap="handleLogin"
       >
-        微信登录
+        微信登录12
       </van-button>
     </view>
     <view class="agreementText">仅供工作人员使用</view>
